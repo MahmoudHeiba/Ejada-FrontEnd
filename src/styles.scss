@@ -1,1 +1,250 @@
-/* You can add global styles to this file, and also import other style files */
+// @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+@import "~bootstrap/scss/bootstrap";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+// MDB SCSS
+@import "~mdb-angular-ui-kit/assets/scss/mdb.scss";
+
+mat-table {
+  mat-header-cell {
+    &.text-left {
+      justify-content: flex-end;
+    }
+
+    &.mt-sm-1 {
+      width: 10% !important;
+    }
+  }
+
+  mat-cell {
+    &.text-left {
+      justify-content: flex-end;
+    }
+
+    &.mt-sm-1 {
+      width: 10% !important;
+    }
+  }
+}
+
+
+.mat-table {
+  font-family: "Droid Arabic Kufi", Roboto, "Helvetica Neue", sans-serif !important;
+  direction: ltr;
+  text-align: right;
+}
+
+.no-data {
+  text-align: center;
+}
+
+.mat-list-item,
+.mat-form-field-label-wrapper,
+.mat-input-element,
+.mat-button-wrapper {
+  font-family: "Droid Arabic Kufi", Roboto, "Helvetica Neue", sans-serif !important;
+}
+
+.mat-dialog-title {
+  font-family: "Droid Arabic Kufi", Roboto, "Helvetica Neue", sans-serif !important;
+  border-bottom: deepskyblue solid 3px;
+  line-height: 50px;
+}
+
+.mat-list-base .mat-subheader {
+  font-family: "Droid Arabic Kufi", Roboto, "Helvetica Neue", sans-serif !important;
+
+}
+
+.mat-card-content {
+  overflow-wrap: break-word;
+}
+
+.mat-card {
+  margin: 55px;
+}
+
+.mat-card-header {
+  flex-direction: column !important;
+  align-items: center;
+
+}
+
+.mat-card-header-text {
+  margin-bottom: 15px;
+}
+
+.container {
+  background: #a8dab5  !important;
+}
+
+.card-title {
+  border-bottom: deepskyblue solid 3px;
+  line-height: 50px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.padding-sm-1 {
+  padding: 5px;
+}
+
+
+
+@font-face {
+  font-family: 'Droid Arabic Kufi';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/DroidKufi-Regular.eot');
+  src: url('./assets/fonts/DroidKufi-Regular.eot?#iefix') format('embedded-opentype'),
+    url('./assets/fonts/DroidKufi-Regular.woff2') format('x-woff2'),
+    url('./assets/fonts/DroidKufi-Regular.woff') format('woff'),
+    url('./assets/fonts/DroidKufi-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Droid Arabic Kufi';
+  font-style: normal;
+  font-weight: 700;
+  src: url('./assets/fonts/DroidKufi-Bold.eot');
+  src: url('./assets/fonts/DroidKufi-Bold.eot?#iefix') format('embedded-opentype'),
+    url('./assets/fonts/DroidKufi-Bold.woff2') format('x-woff2'),
+    url('./assets/fonts/DroidKufi-Bold.woff') format('woff'),
+    url('./assets/fonts/DroidKufi-Bold.ttf') format('truetype');
+}
+
+
+html,
+body {
+  height: 100%;
+  font-family: "Droid Arabic Kufi", Roboto, "Helvetica Neue", sans-serif !important;
+
+}
+
+body {
+  margin: 0;
+  font-family: "Droid Arabic Kufi", Roboto, "Helvetica Neue", sans-serif !important;
+
+}
+
+
+.toast-container {
+  text-align: right !important;
+}
+
+.main-container {
+  margin: 10px;
+  padding: 10px;
+}
+
+.mat-table-num {
+  max-width: 5%;
+}
+
+
+.mat-icon-button[color=edit] {
+  color: darkcyan;
+}
+
+.mat-icon-button[color=view] {
+  color: rgb(44, 120, 235);
+}
+
+.mat-icon-button[color=success] {
+  color: #108815;
+}
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Toolbar */
+.spacer {
+  flex: 1 1 auto;
+}
+
+/* Filter */
+.form {
+  min-height: 56px;
+  max-height: 56px;
+  display: flex;
+  align-items: center;
+  padding: 24px 8px 0;
+  font-size: 20px;
+  justify-content: space-between;
+  border-bottom: 1px solid transparent;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  flex-grow: 1;
+  margin-top: 8px;
+}
+
+/* Mat table */
+.no-results {
+  display: flex;
+  justify-content: center;
+  padding: 14px;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: rgb(243, 200, 206);
+  width: auto !important;
+}
+
+
+.span-red {
+  color: red;
+}
+
+.span-blue {
+  color: blue;
+}
+
+.span-green {
+  color: green;
+}
+
+.span-orange {
+  color: orange;
+}
+
+.span-purple {
+  color: purple;
+}
+
+@media print {
+
+  .hide-print {
+    display: none !important;
+  }
+
+  .cdk-overlay-pane {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+    box-shadow: none !important;
+    margin-top: 0% !important;
+  }
+
+  .container-hide-print {
+    box-shadow: none !important;
+  }
+
+  .mat-dialog-container {
+    overflow: visible !important;
+    padding: 0px!important;
+  }
+
+  .mat-table{
+    overflow: visible !important;
+    max-height:100% !important;
+  }
+
+}

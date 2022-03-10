@@ -1,0 +1,60 @@
+<div class="sign-in-container">
+  <mat-card class="sign-in-card">
+    <h3 mat-dialog-title style="text-align-last: center">Login as Admin</h3>
+    <mat-card-content>
+      <form class="mat-dialog-content" (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+        <div class="form">
+          <mat-form-field color="primary">
+            <input
+              matInput
+              #input
+              class="form-control"
+              placeholder="Email"
+              formControlName="email"
+              name="email"
+              required
+            />
+            <mat-error  class="text-danger"
+            *ngIf="loginForm.get('email')?.invalid
+            && loginForm.get('email')?.touched"
+            >Email address is not valid</mat-error>
+          </mat-form-field>
+        </div>
+
+        <div class="form">
+          <mat-form-field color="primary">
+            <input
+              matInput
+              type="password"
+              #input
+              class="form-control"
+              placeholder="Password"
+              formControlName="password"
+              name="password"
+              required
+            />
+            <mat-error class="text-danger"
+            *ngIf="loginForm.get('password')?.invalid
+            && loginForm.get('password')?.touched"
+            >password is required </mat-error>
+          </mat-form-field>
+        </div>
+
+        <mat-card-actions
+          class="card-actions"
+          fxLayoutAlign="flex-end"
+          style="margin-top: 25px"
+        >
+          <button
+            mat-raised-button
+            color="primary"
+            type="submit"          
+          >
+            Log-in
+          </button>
+        </mat-card-actions>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  <app-loading *ngIf="isLoading"></app-loading>
+</div>

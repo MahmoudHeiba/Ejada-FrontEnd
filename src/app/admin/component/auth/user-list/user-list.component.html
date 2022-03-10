@@ -1,0 +1,132 @@
+<div class="main-container">
+  <mat-card-header class="text-center mat-card-header">
+    <mat-card-title class="card-title">User Details</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="container mat-elevation-z8">
+      <div class="form">
+        <mat-form-field floatPlaceholder="never" color="primary">
+          <input
+            matInput
+            #filter
+            placeholder="Search"
+            [(ngModel)]="filters.key"
+            (keyup)="onFilter(filter.value)"
+          />
+        </mat-form-field>
+        <button mat-icon-button (click)="refresh()" style="margin-top: 10px">
+          <mat-icon matTooltip="Refresh" color="accent">refresh</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" (click)="addNew()">
+          <mat-icon matTooltip="Add">add</mat-icon>
+        </button>
+      </div>
+
+      <mat-table
+        #table
+        [dataSource]="dataSource"
+        matSort
+        class="mat-cell mat-table"
+      >
+        <!-- ID Column -->
+        <ng-container matColumnDef="num">
+          <mat-header-cell *matHeaderCellDef class="mat-table-num"
+            >num</mat-header-cell
+          >
+          <mat-cell
+            *matCellDef="let row; let i = index"
+            class="mat-table-num"
+            >{{ filters.offset + i + 1 }}</mat-cell
+          >
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef
+            >Display name</mat-header-cell
+          >
+          <mat-cell *matCellDef="let row"> {{ row.displayName }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+          <mat-header-cell *matHeaderCellDef 
+            >E-mail</mat-header-cell
+          >
+          <mat-cell *matCellDef="let row"> {{ row.email }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="userName">
+          <mat-header-cell *matHeaderCellDef
+            >User name</mat-header-cell
+          >
+          <mat-cell *matCellDef="let row"> {{ row.userName }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="phoneNumber">
+          <mat-header-cell *matHeaderCellDef
+            >Phone number</mat-header-cell
+          >
+          <mat-cell *matCellDef="let row"> {{ row.phoneNumber }}</mat-cell>
+        </ng-container>
+
+        <!-- actions -->
+        <ng-container matColumnDef="actions">
+          <mat-header-cell *matHeaderCellDef class="text-left">
+            Actions
+          </mat-header-cell>
+
+          <mat-cell
+            *matCellDef="let row; let i = index"
+            class="text-left"
+            style="width: 50px"
+          >
+            <button
+              *ngIf="row.isActive"
+              mat-icon-button
+              color="success"
+              (click)="activeUser(row)"
+            >
+              <mat-icon matTooltip="Un-lock">lock_open</mat-icon>
+            </button>
+            <button
+              *ngIf="!row.isActive"
+              mat-icon-button
+              color="warn"
+              (click)="activeUser(row)"
+            >
+              <mat-icon matTooltip="Active">lock</mat-icon>
+            </button>
+            <button
+              mat-icon-button
+              color="view"
+              [routerLink]="['../roles', row.id]"
+            >
+              <mat-icon matTooltip="Roles">pan_tool</mat-icon>
+            </button>
+            <button mat-icon-button color="edit" (click)="startEdit(row)">
+              <mat-icon matTooltip="Edit">edit</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+      </mat-table>
+
+      <div *ngIf="totalCount === 0" class="no-results">
+        <span>No data to show</span>
+      </div>
+      <mat-paginator
+        *ngIf="totalCount !== 0"
+        #paginator
+        [length]="totalCount"
+        [pageIndex]="filters.pageIndex"
+        [pageSize]="filters.limit"
+        [showFirstLastButtons]="true"
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        (page)="onPage($event)"
+      >
+      </mat-paginator>
+      <app-loading *ngIf="isLoading"></app-loading>
+    </div>
+  </mat-card-content>
+</div>

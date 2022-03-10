@@ -1,0 +1,103 @@
+<div class="main-container">
+  <mat-card-header class="text-center mat-card-header">
+    <mat-card-title class="card-title">Photos Page</mat-card-title>
+  </mat-card-header>
+  <div class="container mat-elevation-z8">
+    <div class="form">
+      <mat-form-field floatPlaceholder="never" color="primary">
+        <input
+          matInput
+          #filter
+          placeholder="Search"
+          [(ngModel)]="filters.key"
+          (keyup)="onFilter(filter.value)"
+        />
+      </mat-form-field>
+      <button mat-icon-button style="margin-top: 10px" (click)="refresh()">
+        <mat-icon matTooltip="Refresh" color="accent">refresh</mat-icon>
+      </button>
+      <button
+        mat-icon-button
+        color="primary"
+        *ngIf="checkRole('add')"
+        mat-icon-button
+        color="primary"
+        (click)="addNew()"
+      >
+        <mat-icon matTooltip="add">add</mat-icon>
+      </button>
+    </div>
+
+    <div class="row">
+      <mat-card class="col-3" *ngFor="let item of dataSource">
+        <mat-card-header>
+          <!-- <mat-card-title>{{item.title}}</mat-card-title> -->
+        </mat-card-header>
+        <img
+          mat-card-image
+          src="{{ item.photoUrl }}"
+          alt="{{ item.photoAlt }}"
+        />
+        <mat-card-content>
+          <p>
+            {{ item.desc }}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <mat-card-actions>
+            <button
+              *ngIf="checkRole('edit')"
+              (click)="addNew(item)"
+              mat-icon-button
+              color="edit"
+            >
+              <mat-icon matTooltip="Edit">edit</mat-icon>
+            </button>
+
+            <button
+              *ngIf="checkRole('remove')"
+              (click)="deleteItem(item)"
+              mat-icon-button
+              color="warn"
+            >
+              <mat-icon matTooltip="delete">delete</mat-icon>
+            </button>
+
+            <button
+              *ngIf="item.isActive"
+              mat-icon-button
+              color="success"
+              (click)="activeItem(item)"
+            >
+              <mat-icon matTooltip="Active">lock_open</mat-icon>
+            </button>
+            <button
+              *ngIf="!item.isActive"
+              mat-icon-button
+              color="warn"
+              (click)="activeItem(item)"
+            >
+              <mat-icon matTooltip="Un-active">lock</mat-icon>
+            </button>
+          </mat-card-actions>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+    <mat-paginator
+      *ngIf="totalCount != 0"
+      #paginator
+      [length]="totalCount"
+      [pageIndex]="filters.pageIndex"
+      [pageSize]="filters.limit"
+      [showFirstLastButtons]="true"
+      [pageSizeOptions]="[5, 10, 25, 100]"
+      (page)="onPage($event)"
+    >
+    </mat-paginator>
+    <app-loading *ngIf="isLoading"></app-loading>
+  </div>
+  <div *ngIf="totalCount === 0" class="no-results">
+    <span>No Data to show</span>
+  </div>
+</div>

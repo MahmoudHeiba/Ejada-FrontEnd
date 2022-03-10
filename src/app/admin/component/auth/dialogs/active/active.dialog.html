@@ -1,0 +1,30 @@
+<div class="container">
+  <h3 mat-dialog-title style="text-align: center">
+    Are you sure {{data.isActive?'Deactivate':'To Active'}} ?
+  </h3>
+
+  <div class="container-row">Name: {{data.displayName}}</div>
+
+  <div class="container-row">user name: {{data.userName}}</div>
+  <div class="container-row">E-mail: {{data.email}}</div>
+  <div class="container-row">Phone number: {{data.phoneNumber}}</div>
+
+  <div mat-dialog-actions style="justify-content: flex-end">
+    <button
+      mat-raised-button
+      [color]="data.isActive?'warn':'primary'"
+      type="submit"
+      (click)="confirmActice()"
+    >
+      {{data.isActive?'Deactivate':'Activate'}}
+    </button>
+    <button
+      mat-raised-button
+      color="accent"
+      (click)="onNoClick()"
+      tabindex="-1"
+    >
+      Cancel
+    </button>
+  </div>
+</div>

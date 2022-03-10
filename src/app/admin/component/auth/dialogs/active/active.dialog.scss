@@ -1,0 +1,30 @@
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-width: 450px;
+}
+
+.mat-dialog-content {
+  overflow: visible !important;
+}
+
+.container>* {
+  width: 100%;
+}
+
+.container-row {
+  display: flex;
+  padding-top: 20px;
+}
+
+.mg-l-1{
+  margin-left: 3px;
+  width: 50%;
+}
+
+.mg-r-1{
+  margin-right: 3px;
+  width: 50%;
+}
+

@@ -1,0 +1,25 @@
+<div class="main-container">
+  <mat-card-header class='text-center mat-card-header'>
+    <mat-card-title class='card-title'>User Role [{{user.userName}}]</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="container mat-elevation-z8">
+
+      <div class="form-roles">
+        <div class="form-role" *ngFor="let item of roles">
+          <mat-checkbox [(ngModel)]="checkedRoles[item.appRole.name]">{{item.appRole.name}}</mat-checkbox>
+          <div class="form-sub-role" *ngFor="let subItem of item.childAppRoles">
+            <mat-checkbox [(ngModel)]="checkedRoles[subItem.appRole.name]">{{subItem.appRole.name}}</mat-checkbox>
+          </div>
+          <mat-divider></mat-divider>
+        </div>
+      </div>
+      <div class="form-actions" mat-dialog-actions style="display: flex;justify-content: flex-end">
+        <button mat-raised-button color="primary" type="submit" (click)="saveRoles()">Save</button>
+        <button mat-raised-button color="accent" [routerLink]="['/admin','auth','users']" tabindex="-1"
+          #backBtn="matButton">Cancel</button>
+      </div>
+    </div>
+  </mat-card-content>
+  <app-loading *ngIf="isLoading"></app-loading>
+</div>

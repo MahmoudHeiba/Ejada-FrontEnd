@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-width: 550px;
+}
+
+.mat-dialog-content {
+  overflow: visible !important;
+  width: auto;
+}
+
+.container > * {
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  padding-top: 6px;
+}
+
+.mat-form-field {
+  font-size: 16px;
+  flex-grow: 1;
+}
+
+.mg-l-1 {
+  margin-left: 3px;
+  margin-right: 2rem;
+}
+  
+.hidden{
+  display: none;
+}
+
+
+.uploaded{
+  color: #460db6;
+}
+

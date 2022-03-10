@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-width: 450px;
+}
+
+.mat-dialog-content {
+  overflow: visible !important;
+}
+
+.container>* {
+  width: 100%;
+}

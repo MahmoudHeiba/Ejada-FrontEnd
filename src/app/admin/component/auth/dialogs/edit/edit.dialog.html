@@ -1,0 +1,53 @@
+<div class="container">
+  <h3 mat-dialog-title style="text-align-last: center;">{{data.title?data.title:'Edit'}}</h3>
+
+  <form class="mat-dialog-content" #formControl="ngForm">
+
+    <div class="form">
+      <mat-form-field color="primary">
+        <input matInput #inputName class="form-control" placeholder="Display name" [(ngModel)]="item.displayName" name="displayName"
+          required />
+        <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field color="primary">
+        <input matInput #inputUserName class="form-control" placeholder="User name" [(ngModel)]="item.userName"
+          name="userName" required />
+        <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field color="primary">
+        <input matInput #inputEmail class="form-control" placeholder="E-mail" [(ngModel)]="item.email"
+          name="email" type="email" required email/>
+        <mat-error *ngIf="formControl.invalid">{{getErrorMessage(true)}}</mat-error>
+      </mat-form-field>
+    </div>
+
+
+    <div class="form">
+      <mat-form-field color="primary">
+        <input matInput #inputPhone class="form-control" placeholder="Phone number" [(ngModel)]="item.phoneNumber"
+          name="phoneNumber" />
+        <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+        <mat-form-field color="primary">
+          <input matInput #inputPass class="form-control" placeholder="Password" [(ngModel)]="item.password"
+            name="password"  type="password" minlength="4" required />
+          <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+      </div>
+
+    <div mat-dialog-actions style="justify-content: flex-end">
+      <button mat-raised-button color="primary" type="submit" [disabled]="!formControl.valid"
+        (click)="confirmSave()">Save</button>
+      <button mat-raised-button color="accent" (click)="onNoClick()" tabindex="-1">Cancel</button>
+    </div>
+  </form>
+</div>

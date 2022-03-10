@@ -1,0 +1,70 @@
+<h3 mat-dialog-title style="text-align-last: center">
+  {{ data.title ? data.title : "Edit" }}
+</h3>
+
+<form class="mat-dialog-content" #formControl="ngForm">
+  <div class="form">
+    <mat-form-field color="primary" class="mg-l-1">
+      <input
+        matInput
+        #input
+        class="form-control"
+        placeholder="Video Alt"
+        [(ngModel)]="item.videoAlt"
+        name="title"
+        required
+      />
+      <mat-error *ngIf="formControl.invalid">{{ getErrorMessage() }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field color="primary" class="mg-l-1">
+      <input
+        matInput
+        #input
+        class="form-control"
+        placeholder="Description"
+        [(ngModel)]="item.desc"
+        name="desc"
+      />
+      <mat-error *ngIf="formControl.invalid">{{ getErrorMessage() }}</mat-error>
+    </mat-form-field>
+  </div>
+  <br />
+  <div class="form">
+    <button mat-stroked-button color="primary" (click)="fileInput.click()">
+     Upload Video
+      <mat-icon class="btn-icon">file_upload</mat-icon>
+    </button>
+    <input
+      type="file"
+      name="fileInput"
+      #fileInput
+      class="hidden"
+      (change)="onChange(fileInput); fileInput.value = ''"
+      accept="video/mp4,video/x-m4v,video/*"
+    />
+    <p *ngIf="uploaded" class="uploaded">
+      {{ fileName }}
+    </p>
+  </div>
+
+  <div mat-dialog-actions style="justify-content: flex-end">
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="!formControl.valid"
+      (click)="confirmSave()"
+    >
+      Save
+    </button>
+    <button
+      mat-raised-button
+      color="accent"
+      (click)="onNoClick()"
+      tabindex="-1"
+    >
+      Cancel
+    </button>
+  </div>
+</form>

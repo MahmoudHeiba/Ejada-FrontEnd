@@ -1,0 +1,61 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <a routerLink="/">
+      <span>Portal website</span>
+    </a>
+    <div>
+      <a mat-button [routerLink]="'home'"> Home </a>
+      <a mat-button [routerLink]="'register'"> Register </a>
+      <a mat-button [routerLink]="'user/login'"> login </a>
+      <a mat-button [routerLink]="'/admin/login'"> login as admin </a>
+      <a mat-button [routerLink]="'events'"> Events </a>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<!-- <div class="row">
+  <div class="col-6">
+    <h1>Video</h1>
+    <div class="row">
+      <div class="col-4">
+        asdasd
+      </div>
+      <div class="col-4">
+        asdasd
+      </div>
+      <div class="col-4">
+        asdasd
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        asdasd
+      </div>
+      <div class="col-4">
+        asdasd
+      </div>
+      <div class="col-4">
+        asdasd
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4">
+        asdasd
+      </div>
+      <div class="col-4">
+        asdasd
+      </div>
+      <div class="col-4">
+        asdasd
+      </div>
+    </div>
+  </div>
+  <div class="col-6">
+  
+  </div>
+</div> -->
+
+
+
+
+<router-outlet></router-outlet>
