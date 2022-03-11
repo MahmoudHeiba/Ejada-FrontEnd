@@ -6,18 +6,18 @@ import { AccountService } from "../admin/services/account.service";
 import { PhotoService } from "../admin/services/photo-service";
 import { SharedModule } from "../shared/shared.module";
 import { HomeComponent } from "./home/home.component";
-import { RegisterComponent } from "./register/register.component";
 import { UserRoutingModule } from "./user-routing.module";
 import { UserComponent } from "./user.component";
 import { MdbCarouselModule } from 'mdb-angular-ui-kit/carousel';
 import { VideoService } from "../admin/services/video-service";
+import { NewsService } from "../admin/services/news-service";
+import { EventsService } from "../admin/services/events-service";
 
 const components: any = [
     UserComponent,
-    HomeComponent,
-    RegisterComponent
+    HomeComponent
 ];
-const Services: any = [AccountService, PhotoService,VideoService]
+const Services: any = [AccountService, PhotoService,VideoService, NewsService, EventsService]
 const guards: any = [];
 const interceptors: any = [];
 
@@ -41,7 +41,6 @@ const interceptors: any = [];
     schemas: [
         CUSTOM_ELEMENTS_SCHEMA
       ],
-    entryComponents: [RegisterComponent]
 })
 
 export class UserModule { }

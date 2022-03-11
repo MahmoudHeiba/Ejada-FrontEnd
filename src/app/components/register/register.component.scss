@@ -1,0 +1,65 @@
+// .container {
+//     display: flex;
+//     flex-direction: column;
+//     min-width: 450px;
+//   }
+  
+//   .mat-dialog-content {
+//     overflow: visible !important;
+//   }
+  
+//   .container>* {
+//     width: 100%;
+//   }
+  
+//   .form {
+//     display: flex;
+//     padding-top: 6px;
+//   }
+  
+//   .mat-form-field {
+//     font-size: 16px;
+//     flex-grow: 1;
+//   }
+  
+
+
+.sign-in-container {
+  height: 100vh;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  background-image: url('/assets/images/bg.jpg')!important;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.sign-in-card {
+  width: 400px;
+  // height: 230px;
+  // height: 320px;
+  padding: 32px
+}
+
+.nested-grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  // column-gap: 16px;
+  row-gap: 1em;
+
+  // justify-items: center;
+}
+
+.card-actions {
+  padding: 8px 8px;
+}
+
+.mat-dialog-actions{
+  display: flex;
+  flex-direction: column;
+}
+
+a{
+  cursor: pointer;
+  text-decoration: underline;
+}

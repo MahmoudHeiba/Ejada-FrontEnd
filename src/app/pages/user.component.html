@@ -5,11 +5,13 @@
     </a>
     <div>
       <a mat-button [routerLink]="'home'"> Home </a>
-      <a mat-button [routerLink]="'register'"> Register </a>
-      <a mat-button [routerLink]="'user/login'"> login </a>
-      <a mat-button [routerLink]="'/admin/login'"> login as admin </a>
       <a mat-button [routerLink]="'events'"> Events </a>
     </div>
+    <span class="example-spacer"></span>
+    <span> Hi {{user?.displayName}}</span>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" matTooltip="LogOut" (click)="logOut()">
+      <span class="material-icons-outlined">logout</span>
+    </button>
   </mat-toolbar-row>
 </mat-toolbar>
 

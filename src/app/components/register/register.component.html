@@ -1,0 +1,50 @@
+<div class="sign-in-container">
+  <mat-card class="sign-in-card">
+    <h3 mat-dialog-title style="text-align-last: center">Sign Up</h3>
+    <mat-card-content>
+      <form class="mat-dialog-content" [formGroup]="registerForm">
+
+        <div class="form">
+          <mat-form-field color="primary">
+            <input matInput #inputName class="form-control" placeholder="Display name" formControlName="displayName" />
+          </mat-form-field>
+        </div>
+
+        <div class="form">
+          <mat-form-field color="primary">
+            <input matInput #inputUserName class="form-control" placeholder="User name" formControlName="userName" />
+          </mat-form-field>
+        </div>
+
+        <div class="form">
+          <mat-form-field color="primary">
+            <input matInput #inputEmail class="form-control" placeholder="E-mail" formControlName="email"
+              type="email" />
+          </mat-form-field>
+        </div>
+
+
+        <div class="form">
+          <mat-form-field color="primary">
+            <input matInput #inputPhone class="form-control" placeholder="Phone number" formControlName="phoneNumber" />
+          </mat-form-field>
+        </div>
+
+        <div class="form">
+          <mat-form-field color="primary">
+            <input matInput #inputPass class="form-control" placeholder="Password" formControlName="password"
+              type="password" />
+          </mat-form-field>
+        </div>
+
+        <div mat-dialog-actions class="text-center mt-3">
+          <button mat-raised-button color="primary" type="submit" (click)="submit()" [disabled]="registerForm.invalid">
+            Sign Up
+          </button>
+          <a class="mt-2" [routerLink]="['/signIn']">Sign In</a>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  <app-loading *ngIf="isLoading"></app-loading>
+</div>
